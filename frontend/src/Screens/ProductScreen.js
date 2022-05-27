@@ -101,7 +101,7 @@ function ProductScreen() {
               ></Rating>
             </ListGroup.Item>
             <ListGroup.Item>
-              Annual Ergy Usage: {product.energy}KWh
+              Annual Energy Usage: {product.energy}KWh
               <Energy energy={[product.energyRating]}></Energy>
             </ListGroup.Item>
             <ListGroup.Item>Price(est.):AED {product.price}</ListGroup.Item>
