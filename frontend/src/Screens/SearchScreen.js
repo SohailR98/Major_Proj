@@ -148,7 +148,7 @@ export default function SearchScreen() {
   return (
     <div>
       <Helmet>
-        <title>Seacrh Products</title>
+        <title>Search Products</title>
       </Helmet>
       <Row>
         <Col md={3}>
