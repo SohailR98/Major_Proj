@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
 
 export default function SearchBox() {
   const navigate = useNavigate();
@@ -22,7 +25,9 @@ export default function SearchBox() {
           aria-label="Search Products"
           aria-describedby="button-search"
         ></FormControl>
-        <Button variant="outline-dark" type="sybmit"
+        <Button variant="outline-dark" type="submit" id="button-search">
+          <i className="fas fa-search"></i>
+        </Button>
       </InputGroup>
     </Form>
   );
