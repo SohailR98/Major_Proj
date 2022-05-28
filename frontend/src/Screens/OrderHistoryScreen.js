@@ -86,7 +86,7 @@ export default function OrderHistoryScreen() {
                 <td>
                   <Button
                     type="button"
-                    variant="success"
+                    variant="outline-success"
                     onClick={() => {
                       navigate(`/order/${order._id}`);
                     }}

@@ -12,6 +12,7 @@ body {
 
 h1 {
   color: rgb(70, 207, 74);
+  text-shadow: 1px 1px 2px black;
 }
 
 .site-container {
@@ -218,5 +219,32 @@ a {
 
 .checkout-steps > div.active {
   border-bottom: 00.2rem solid green;
+  color: green;
+}
+
+/* sidebar */
+
+.side-navbar {
+  width: 240px;
+  height: 100%;
+  position: absolute;
+  left: -300px;
+  background-color: rgb(24, 23, 23);
+  transition: 0.5s;
+}
+
+.site-container {
+  transition: 0.4s;
+}
+
+.active-cont {
+  margin-left: 240px;
+}
+
+.active-nav {
+  left: 0;
+}
+
+.fa-bars {
   color: green;
 }
