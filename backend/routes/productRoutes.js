@@ -1,6 +1,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Product from '../models/productModel.js';
+import { isAuth, isAdmin } from '../utils.js';
 
 const productRouter = express.Router();
 
@@ -9,7 +10,56 @@ productRouter.get('/', async (req, res) => {
   res.send(products);
 });
 
+productRouter.post(
+  '/',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const newProduct = new Product({
+      name: 'sample name ' + Date.now(),
+      slug: 'sample-name-' + Date.now(),
+      image_url: '/images/p002.jpg',
+      price: 0,
+      category: 'sample category',
+      brand: 'sample brand',
+      countInStock: 0,
+      rating: 0,
+      numReviews: 0,
+      url: 'https://www.amazon.ae/Refrigerator-750Liters-Capacity-RT75K60001S8-1-Compressor/dp/B08DTZMH5G/ref=sr_1_27?c=ts&keywords=Refrigerators&qid=1651818815&refinements=p_36%3A70000-&rnid=15160318031&s=appliances&sr=1-27&ts_id=15174969031',
+      energy: 0,
+      energyRating: 0,
+      description: 'sample description',
+      model: 'sample model',
+    });
+    const product = await newProduct.save();
+    res.send({ message: 'Product Created', product });
+  })
+);
+
 const PAGE_SIZE = 3;
+
+productRouter.get(
+  '/admin',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const { query } = req;
+    const page = query.page || 1;
+    const pageSize = query.pageSize || PAGE_SIZE;
+
+    const products = await Product.find()
+      .skip(pageSize * (page - 1))
+      .limit(pageSize);
+    const countProducts = await Product.countDocuments();
+    res.send({
+      products,
+      countProducts,
+      page,
+      pages: Math.ceil(countProducts / pageSize),
+    });
+  })
+);
+
 productRouter.get(
   '/search',
   expressAsyncHandler(async (req, res) => {
