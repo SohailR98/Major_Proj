@@ -207,7 +207,7 @@ export default function OrderScreen() {
                 <strong>Address: </strong> {order.shippingAddress.address},
                 {order.shippingAddress.city}, {order.shippingAddress.postalCode}
                 ,{order.shippingAddress.country}
-                &nbdp;
+                &nbsp;
                 {order.shippingAddress.location &&
                   order.shippingAddress.location.lat && (
                     <a
