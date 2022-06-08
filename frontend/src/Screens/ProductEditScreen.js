@@ -64,6 +64,7 @@ export default function ProductEditScreen() {
   const [energy, setEnergy] = useState('');
   const [model, setModel] = useState('');
   const [description, setDescription] = useState('');
+  const [hours, setHours] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -81,6 +82,7 @@ export default function ProductEditScreen() {
         setUrl(data.url);
         setModel(data.model);
         setEnergy(data.energy);
+        setHours(data.hours);
         dispatch({ type: 'FETCH_SUCCESS' });
       } catch (err) {
         dispatch({
@@ -112,6 +114,7 @@ export default function ProductEditScreen() {
           url,
           energy,
           model,
+          hours,
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -251,6 +254,14 @@ export default function ProductEditScreen() {
             <Form.Control
               value={energy}
               onChange={(e) => setEnergy(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="energy">
+            <Form.Label>Hours</Form.Label>
+            <Form.Control
+              value={hours}
+              onChange={(e) => setHours(e.target.value)}
               required
             />
           </Form.Group>

@@ -10,7 +10,7 @@ import { Store } from '../Store';
 import { Link } from 'react-router-dom';
 
 export default function EnquiryScreen() {
-  const { state } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
 
   const [num, changeNum] = useState(1);
@@ -25,6 +25,9 @@ export default function EnquiryScreen() {
     } else {
       changeNum(num - 1);
     }
+  };
+  const removeItemHandler = (item) => {
+    ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
 
   return (
@@ -85,6 +88,14 @@ export default function EnquiryScreen() {
                         ) : (
                           'not available'
                         )}
+                      </Col>
+                      <Col md={2}>
+                        <Button
+                          variant="light"
+                          onClick={() => removeItemHandler(item)}
+                        >
+                          <i className="fas fa-trash"></i>
+                        </Button>
                       </Col>
                       <Col>
                         Monthly Price

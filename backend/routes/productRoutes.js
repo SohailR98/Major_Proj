@@ -30,6 +30,7 @@ productRouter.post(
       energyRating: 0,
       description: 'sample description',
       model: 'sample model',
+      hours: 1,
     });
     const product = await newProduct.save();
     res.send({ message: 'Product Created', product });
@@ -55,6 +56,7 @@ productRouter.put(
       product.url = req.body.url;
       product.model = req.body.model;
       product.energy = req.body.energy;
+      product.hours = req.body.hours;
       await product.save();
       res.send({ message: 'Product Updated' });
     } else {
