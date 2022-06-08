@@ -13,21 +13,6 @@ export default function EnquiryScreen() {
   const { state } = useContext(Store);
   const { cart } = state;
 
-  const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
-
-  cart.energyP = round2(
-    cart.cartItems.category === 'Refrigerator'
-      ? cart.cartItems.reduce((a, c) => a + c.energy)
-      : cart.cartItems.category === 'Light'
-      ? cart.cartItems.reduce((a, c) => a + c.energy / 1000)
-      : 'not available'
-  );
-  cart.energy2 = round2(cart.cartItems.reduce((a, c) => a + c.energy));
-
-  cart.itemsPrice = round2(
-    cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
-  );
-
   const [num, changeNum] = useState(1);
 
   const incrementNum = () => {
@@ -135,7 +120,7 @@ export default function EnquiryScreen() {
               </ListGroup>
               <ListGroup variant="flush">
                 <Row>
-                  <Col>Total Monthly Energy Usage - {cart.energy2}</Col>
+                  <Col>Total Monthly Energy Usage - </Col>
                 </Row>
               </ListGroup>
             </Card.Body>
