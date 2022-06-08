@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
-
+import Calculator from '../components/Calculator';
 import { Store } from '../Store';
 import { Link } from 'react-router-dom';
 
@@ -82,8 +82,8 @@ export default function EnquiryScreen() {
                           <p>{item.energy} KWh</p>
                         ) : item.category === 'Light' ? (
                           <p>
-                            {(item.energy * num).toFixed(2)}Watts ={' '}
-                            {((item.energy / 1000) * num).toFixed(2)} KWh
+                            {(item.energy * num).toFixed(1)}Watts ={' '}
+                            {((item.energy / 1000) * num).toFixed(1)} KWh
                           </p>
                         ) : (
                           'not available'
@@ -100,12 +100,12 @@ export default function EnquiryScreen() {
                       <Col>
                         Monthly Price
                         {item.category === 'Refrigerator' ? (
-                          <p>AED: {((item.energy * 0.23) / 12).toFixed(2)}</p>
+                          <p>AED: {((item.energy * 0.23) / 12).toFixed(1)}</p>
                         ) : item.category === 'Light' ? (
                           <p>
                             AED:{' '}
                             {((item.energy / 1000) * num * 30 * 0.23).toFixed(
-                              2
+                              1
                             )}
                           </p>
                         ) : (
@@ -125,15 +125,14 @@ export default function EnquiryScreen() {
               <Card.Title>Energy Details</Card.Title>
               <ListGroup variant="flush">
                 <Row>
-                  <Col>Tariff in UAE : 23fills</Col>
+                  <Col>Tariff in UAE : 23fills / 1 KWh</Col>
                   <Col></Col>
                 </Row>
               </ListGroup>
-              <ListGroup variant="flush">
-                <Row>
-                  <Col>Total Monthly Energy Usage - </Col>
-                </Row>
-              </ListGroup>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title>ADD for Total Electricity Bill</Card.Title>
+              <Calculator></Calculator>
             </Card.Body>
           </Card>
         </Col>

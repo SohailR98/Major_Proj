@@ -202,13 +202,17 @@ export default function ProductEditScreen() {
             {loadingUpload && <LoadingBox></LoadingBox>}
           </Form.Group>
           <Form.Group className="mb-3" controlId="category">
-            <Form.Label>Category</Form.Label>
-            <Form.Control
+            <Form.Label>Category :</Form.Label>
+            <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               required
-            />
+            >
+              <option value="Refrigerator">Refrigerator</option>
+              <option value="Light">Light</option>
+            </select>
           </Form.Group>
+
           <Form.Group className="mb-3" controlId="brand">
             <Form.Label>Brand</Form.Label>
             <Form.Control
@@ -263,6 +267,7 @@ export default function ProductEditScreen() {
               value={hours}
               onChange={(e) => setHours(e.target.value)}
               required
+              disabled
             />
           </Form.Group>
           <div className="mb-3">

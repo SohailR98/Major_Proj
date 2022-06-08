@@ -55,7 +55,7 @@ export default function SignupScreen() {
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
-      <h1 className="my-3"> Sign In </h1>
+      <h1 className="my-3"> Sign Up </h1>
 
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="name">
@@ -96,7 +96,7 @@ export default function SignupScreen() {
           <Button type="submit">Sign Up</Button>
         </div>
         <div className="mb-3">
-          Already hace an account?{' '}
+          Already have an account?{' '}
           <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
         </div>
       </Form>
