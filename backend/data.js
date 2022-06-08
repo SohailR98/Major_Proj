@@ -35,6 +35,7 @@ const data = {
       energyRating: 5,
       countInStock: 5,
       model: 'GN-B492SLCL',
+      hours: 1,
     },
     {
       //_id:'124',
@@ -55,6 +56,7 @@ const data = {
       energyRating: 5,
       countInStock: 10,
       model: 'RT75K60001S8',
+      hours: 1,
     },
     {
       //_id:'125',
@@ -75,6 +77,7 @@ const data = {
       energyRating: 3,
       countInStock: 0,
       model: 'HSR-H480-S',
+      hours: 1,
     },
   ],
 };

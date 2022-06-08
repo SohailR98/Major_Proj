@@ -36,6 +36,7 @@ import OrderListScreen from './Screens/OrderListScreen';
 import UserListScreen from './Screens/UserListScreen';
 import UserEditScreen from './Screens/UserEditScreen';
 import MapScreen from './Screens/MapScreen';
+import EnquiryScreen from './Screens/EnquiryScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -185,6 +186,7 @@ function App() {
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
+              <Route path="/enquiry" element={<EnquiryScreen />} />
               <Route
                 path="/profile"
                 element={
