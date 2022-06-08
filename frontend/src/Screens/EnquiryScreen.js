@@ -135,7 +135,7 @@ export default function EnquiryScreen() {
               </ListGroup>
               <ListGroup variant="flush">
                 <Row>
-                  <Col>Total Monthly Energy Usage : {cart.energy2}</Col>
+                  <Col>Total Monthly Energy Usage - {cart.energy2}</Col>
                 </Row>
               </ListGroup>
             </Card.Body>
