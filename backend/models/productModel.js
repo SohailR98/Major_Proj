@@ -11,7 +11,7 @@ const productSchema = new mongoose.Schema(
     price: { type: Number, required: true },
     countInStock: { type: Number, required: true },
     rating: { type: Number, required: true },
-    numReviews: { type: Number, required: true },
+    numReviews: { type: Number, required: false },
     url: { type: String, required: true },
     energyRating: { type: Number, required: true },
     energy: { type: Number, required: true },
