@@ -13,7 +13,11 @@ export default function EnquiryScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
 
-  const [num, num1, num2, num3, changeNum] = useState(1);
+  const [num, changeNum] = useState(1);
+  const [num1, changeNum1] = useState(1);
+  const [num2, changeNum2] = useState(1);
+  const [num3, changeNum3] = useState(1);
+  const [num4, changeNum4] = useState(1);
 
   const incrementNum = () => {
     changeNum(num + 1);
@@ -27,36 +31,47 @@ export default function EnquiryScreen() {
     }
   };
   const incrementNum1 = () => {
-    changeNum(num1 + 1);
+    changeNum1(num1 + 1);
   };
 
   const decrementNum1 = () => {
     if (num1 - 1 < 0) {
       alert(`you can't decrease than 0`);
     } else {
-      changeNum(num1 - 1);
+      changeNum1(num1 - 1);
     }
   };
   const incrementNum2 = () => {
-    changeNum(num2 + 1);
+    changeNum2(num2 + 1);
   };
 
   const decrementNum2 = () => {
     if (num2 - 1 < 0) {
       alert(`you can't decrease than 0`);
     } else {
-      changeNum(num2 - 1);
+      changeNum2(num2 - 1);
     }
   };
   const incrementNum3 = () => {
-    changeNum(num3 + 1);
+    changeNum3(num3 + 1);
   };
 
   const decrementNum3 = () => {
     if (num3 - 1 < 0) {
       alert(`you can't decrease than 0`);
     } else {
-      changeNum(num3 - 1);
+      changeNum3(num3 - 1);
+    }
+  };
+  const incrementNum4 = () => {
+    changeNum4(num4 + 1);
+  };
+
+  const decrementNum4 = () => {
+    if (num4 - 1 < 0) {
+      alert(`you can't decrease than 0`);
+    } else {
+      changeNum4(num4 - 1);
     }
   };
   const removeItemHandler = (item) => {
@@ -126,21 +141,40 @@ export default function EnquiryScreen() {
                         </Col>
                       ) : item.category === 'Dishwasher' ? (
                         <Col md={3}>
-                          <Button
-                            variant="Light"
-                            disabled={num2 === 1}
-                            onClick={decrementNum2}
-                          >
-                            <i className="fas fa-minus-circle"></i>
-                          </Button>{' '}
-                          <span>Hours: {num2}</span>{' '}
-                          <Button
-                            variant="Light"
-                            disabled={num2 === 24}
-                            onClick={incrementNum2}
-                          >
-                            <i className="fas fa-plus-circle"></i>
-                          </Button>{' '}
+                          <Row>
+                            <Button
+                              variant="Light"
+                              disabled={num2 === 1}
+                              onClick={decrementNum2}
+                            >
+                              <i className="fas fa-minus-circle"></i>
+                            </Button>{' '}
+                            <span>Hours: {num2}</span>{' '}
+                            <Button
+                              variant="Light"
+                              disabled={num2 === 24}
+                              onClick={incrementNum2}
+                            >
+                              <i className="fas fa-plus-circle"></i>
+                            </Button>
+                          </Row>
+                          <Row>
+                            <Button
+                              variant="Light"
+                              disabled={num4 === 1}
+                              onClick={decrementNum4}
+                            >
+                              <i className="fas fa-minus-circle"></i>
+                            </Button>{' '}
+                            <span>Days in Month: {num4}</span>{' '}
+                            <Button
+                              variant="Light"
+                              disabled={num4 === 30}
+                              onClick={incrementNum4}
+                            >
+                              <i className="fas fa-plus-circle"></i>
+                            </Button>{' '}
+                          </Row>
                         </Col>
                       ) : item.category === 'Microwave' ? (
                         <Col md={3}>
@@ -220,9 +254,12 @@ export default function EnquiryScreen() {
                         ) : item.category === 'Dishwasher' ? (
                           <p>
                             AED:{' '}
-                            {((item.energy / 1000) * num2 * 30 * 0.23).toFixed(
-                              1
-                            )}
+                            {(
+                              (item.energy / 1000) *
+                              num2 *
+                              num4 *
+                              0.23
+                            ).toFixed(1)}
                           </p>
                         ) : item.category === 'Microwave' ? (
                           <p>
