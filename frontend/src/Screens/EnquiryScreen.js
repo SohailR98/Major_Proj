@@ -13,7 +13,7 @@ export default function EnquiryScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
 
-  const [num, changeNum] = useState(1);
+  const [num, num1, num2, num3, changeNum] = useState(1);
 
   const incrementNum = () => {
     changeNum(num + 1);
@@ -24,6 +24,39 @@ export default function EnquiryScreen() {
       alert(`you can't decrease than 0`);
     } else {
       changeNum(num - 1);
+    }
+  };
+  const incrementNum1 = () => {
+    changeNum(num1 + 1);
+  };
+
+  const decrementNum1 = () => {
+    if (num1 - 1 < 0) {
+      alert(`you can't decrease than 0`);
+    } else {
+      changeNum(num1 - 1);
+    }
+  };
+  const incrementNum2 = () => {
+    changeNum(num2 + 1);
+  };
+
+  const decrementNum2 = () => {
+    if (num2 - 1 < 0) {
+      alert(`you can't decrease than 0`);
+    } else {
+      changeNum(num2 - 1);
+    }
+  };
+  const incrementNum3 = () => {
+    changeNum(num3 + 1);
+  };
+
+  const decrementNum3 = () => {
+    if (num3 - 1 < 0) {
+      alert(`you can't decrease than 0`);
+    } else {
+      changeNum(num3 - 1);
     }
   };
   const removeItemHandler = (item) => {
@@ -73,6 +106,60 @@ export default function EnquiryScreen() {
                             <i className="fas fa-plus-circle"></i>
                           </Button>{' '}
                         </Col>
+                      ) : item.category === 'Air Conditioner' ? (
+                        <Col md={3}>
+                          <Button
+                            variant="Light"
+                            disabled={num1 === 1}
+                            onClick={decrementNum1}
+                          >
+                            <i className="fas fa-minus-circle"></i>
+                          </Button>{' '}
+                          <span>Hours: {num1}</span>{' '}
+                          <Button
+                            variant="Light"
+                            disabled={num1 === 24}
+                            onClick={incrementNum1}
+                          >
+                            <i className="fas fa-plus-circle"></i>
+                          </Button>{' '}
+                        </Col>
+                      ) : item.category === 'Dishwasher' ? (
+                        <Col md={3}>
+                          <Button
+                            variant="Light"
+                            disabled={num2 === 1}
+                            onClick={decrementNum2}
+                          >
+                            <i className="fas fa-minus-circle"></i>
+                          </Button>{' '}
+                          <span>Hours: {num2}</span>{' '}
+                          <Button
+                            variant="Light"
+                            disabled={num2 === 24}
+                            onClick={incrementNum2}
+                          >
+                            <i className="fas fa-plus-circle"></i>
+                          </Button>{' '}
+                        </Col>
+                      ) : item.category === 'Microwave' ? (
+                        <Col md={3}>
+                          <Button
+                            variant="Light"
+                            disabled={num3 === 1}
+                            onClick={decrementNum3}
+                          >
+                            <i className="fas fa-minus-circle"></i>
+                          </Button>{' '}
+                          <span>Hours: {num3}</span>{' '}
+                          <Button
+                            variant="Light"
+                            disabled={num3 === 24}
+                            onClick={incrementNum3}
+                          >
+                            <i className="fas fa-plus-circle"></i>
+                          </Button>{' '}
+                        </Col>
                       ) : (
                         <p> not available </p>
                       )}
@@ -84,6 +171,21 @@ export default function EnquiryScreen() {
                           <p>
                             {(item.energy * num).toFixed(1)}Watts ={' '}
                             {((item.energy / 1000) * num).toFixed(1)} KWh
+                          </p>
+                        ) : item.category === 'Air Conditioner' ? (
+                          <p>
+                            {(item.energy * num1).toFixed(1)}Watts ={' '}
+                            {((item.energy / 1000) * num1).toFixed(1)} KWh
+                          </p>
+                        ) : item.category === 'Dishwasher' ? (
+                          <p>
+                            {(item.energy * num2).toFixed(1)}Watts ={' '}
+                            {((item.energy / 1000) * num2).toFixed(1)} KWh
+                          </p>
+                        ) : item.category === 'Microwave' ? (
+                          <p>
+                            {(item.energy * num3).toFixed(1)}Watts ={' '}
+                            {((item.energy / 1000) * num3).toFixed(1)} KWh
                           </p>
                         ) : (
                           'not available'
@@ -105,6 +207,27 @@ export default function EnquiryScreen() {
                           <p>
                             AED:{' '}
                             {((item.energy / 1000) * num * 30 * 0.23).toFixed(
+                              1
+                            )}
+                          </p>
+                        ) : item.category === 'Air Conditioner' ? (
+                          <p>
+                            AED:{' '}
+                            {((item.energy / 1000) * num1 * 30 * 0.23).toFixed(
+                              1
+                            )}
+                          </p>
+                        ) : item.category === 'Dishwasher' ? (
+                          <p>
+                            AED:{' '}
+                            {((item.energy / 1000) * num2 * 30 * 0.23).toFixed(
+                              1
+                            )}
+                          </p>
+                        ) : item.category === 'Microwave' ? (
+                          <p>
+                            AED:{' '}
+                            {((item.energy / 1000) * num3 * 30 * 0.23).toFixed(
                               1
                             )}
                           </p>

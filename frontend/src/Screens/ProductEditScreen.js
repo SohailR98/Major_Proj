@@ -210,6 +210,9 @@ export default function ProductEditScreen() {
             >
               <option value="Refrigerator">Refrigerator</option>
               <option value="Light">Light</option>
+              <option value="Air Conditioner">Air Conditioner</option>
+              <option value="Dishwasher">Dishwasher</option>
+              <option value="Microwave">Microwave</option>
             </select>
           </Form.Group>
 
