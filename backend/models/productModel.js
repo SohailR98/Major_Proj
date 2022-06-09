@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema(
     url: { type: String, required: true },
     energyRating: { type: Number, required: true },
     energy: { type: Number, required: true },
-    model: { type: String, required: true },
+    model: { type: String, required: false },
     hours: { type: Number, required: true },
   },
   {
