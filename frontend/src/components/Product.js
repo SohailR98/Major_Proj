@@ -31,7 +31,7 @@ function Product(props) {
 
   return (
     <Card border="success" key={product.slug}>
-      <Link to={'product/' + product.slug}>
+      <Link to={`/product/${product.slug}`}>
         <Card.Img
           src={product.image_url}
           variant="top"
