@@ -320,7 +320,7 @@ export default function EnquiryScreen() {
               <Card.Title>Energy Details</Card.Title>
               <ListGroup variant="flush">
                 <Row>
-                  <Col>Tariff in UAE : 23fills / 1 KWh</Col>
+                  <Col>Tariff in UAE - 23fills / 1 KWh</Col>
                   <Col></Col>
                 </Row>
               </ListGroup>
