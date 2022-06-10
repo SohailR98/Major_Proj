@@ -124,7 +124,10 @@ orderRouter.put(
   '/:id/pay',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const order = await Order.findById(req.params.id);
+    const order = await Order.findById(req.params.id).populate(
+      'user',
+      'email name'
+    );
     if (order) {
       order.isPaid = true;
       order.paidAt = Date.now();
