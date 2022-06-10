@@ -18,6 +18,7 @@ export default function EnquiryScreen() {
   const [num2, changeNum2] = useState(1);
   const [num3, changeNum3] = useState(1);
   const [num4, changeNum4] = useState(1);
+  const [num5, changeNum5] = useState(1);
 
   const incrementNum = () => {
     changeNum(num + 1);
@@ -74,6 +75,18 @@ export default function EnquiryScreen() {
       changeNum4(num4 - 1);
     }
   };
+  const incrementNum5 = () => {
+    changeNum5(num5 + 1);
+  };
+
+  const decrementNum5 = () => {
+    if (num5 - 1 < 0) {
+      alert(`you can't decrease than 0`);
+    } else {
+      changeNum5(num5 - 1);
+    }
+  };
+
   const removeItemHandler = (item) => {
     ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
@@ -178,21 +191,40 @@ export default function EnquiryScreen() {
                         </Col>
                       ) : item.category === 'Microwave' ? (
                         <Col md={3}>
-                          <Button
-                            variant="Light"
-                            disabled={num3 === 1}
-                            onClick={decrementNum3}
-                          >
-                            <i className="fas fa-minus-circle"></i>
-                          </Button>{' '}
-                          <span>Hours: {num3}</span>{' '}
-                          <Button
-                            variant="Light"
-                            disabled={num3 === 24}
-                            onClick={incrementNum3}
-                          >
-                            <i className="fas fa-plus-circle"></i>
-                          </Button>{' '}
+                          <Row>
+                            <Button
+                              variant="Light"
+                              disabled={num3 === 1}
+                              onClick={decrementNum3}
+                            >
+                              <i className="fas fa-minus-circle"></i>
+                            </Button>{' '}
+                            <span>Hours: {num3}</span>{' '}
+                            <Button
+                              variant="Light"
+                              disabled={num3 === 24}
+                              onClick={incrementNum3}
+                            >
+                              <i className="fas fa-plus-circle"></i>
+                            </Button>
+                          </Row>
+                          <Row>
+                            <Button
+                              variant="Light"
+                              disabled={num4 === 1}
+                              onClick={decrementNum5}
+                            >
+                              <i className="fas fa-minus-circle"></i>
+                            </Button>{' '}
+                            <span>Days in Month: {num5}</span>{' '}
+                            <Button
+                              variant="Light"
+                              disabled={num4 === 30}
+                              onClick={incrementNum5}
+                            >
+                              <i className="fas fa-plus-circle"></i>
+                            </Button>
+                          </Row>
                         </Col>
                       ) : (
                         <p> not available </p>
@@ -264,9 +296,12 @@ export default function EnquiryScreen() {
                         ) : item.category === 'Microwave' ? (
                           <p>
                             AED:{' '}
-                            {((item.energy / 1000) * num3 * 30 * 0.23).toFixed(
-                              1
-                            )}
+                            {(
+                              (item.energy / 1000) *
+                              num3 *
+                              num5 *
+                              0.23
+                            ).toFixed(1)}
                           </p>
                         ) : (
                           'not available'
