@@ -110,9 +110,7 @@ export default function OrderScreen() {
       }
     });
   }
-  function onError(err) {
-    toast.error(getError(err));
-  }
+  function onError(err) {}
 
   useEffect(() => {
     const fetchOrder = async () => {
