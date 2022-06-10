@@ -326,7 +326,7 @@ export default function EnquiryScreen() {
               </ListGroup>
             </Card.Body>
             <Card.Body>
-              <Card.Title>ADD for Total Electricity Bill:</Card.Title>
+              <Card.Title>ADD For Total Electricity Bill:</Card.Title>
               <Calculator></Calculator>
             </Card.Body>
           </Card>
