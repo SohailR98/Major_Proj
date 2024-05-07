@@ -14,9 +14,9 @@ In addition to selling home appliances, the website also highlights energy-savin
 ## Technologies Used
 The project was developed using the following technologies:
 
-Frontend: [List of frontend technologies/frameworks/libraries]
-Backend: [List of backend technologies/frameworks/libraries]
-Database: [Database management system used]
+Frontend: react
+Backend: javascript 
+
 
 ## Getting Started
 To run the project locally, follow these steps:
