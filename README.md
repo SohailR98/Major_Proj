@@ -30,8 +30,8 @@ To run the project locally, follow these steps:
 Sohail Rashed
 Asad Kamal
 
-#License
-This project is licensed under the [insert your chosen license here]. For more details, please refer to the LICENSE file.
+## License
+This project is licensed under the GNU. For more details, please refer to the LICENSE file.
 
 Feel free to tryout the website
 https://major-proj-sohail-assad.herokuapp.com/
